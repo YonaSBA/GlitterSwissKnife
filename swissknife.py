@@ -147,7 +147,7 @@ def register(mode, registration_code='11111', screen_name='lorem_ipsum', mail='l
 
     response = communication.send_and_receive(sockets['general'], commands[150].format(registration_code, screen_name, 'im4', 'lorem_ipsum', 'Public', MID, username, input('Please enter a password: '), 'Male', mail))
 
-    if 'Registration error' or 'Illegal user registration' in response:
+    if 'Registration error' in response or 'Illegal user registration' in response:
         return 'Registration failed!\n{}'.format(response)
     return 'Registration succeeded!\n{}'.format(response)
 
